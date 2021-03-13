@@ -67,23 +67,27 @@ export default {
   data() {
     return {
       error: null,
-      home: []
-      // BannerBackground: ''
+      home: [],
     };
   },
   async mounted() {
     try {
-      const response = await axios.get("http://localhost:1337/home");
+      const response = await axios.get(
+        "https://nuxt-strapi-cms.herokuapp.com/home"
+      );
       this.home = response.data;
+      console.log(this.home.banner_image.url);
     } catch (error) {
       this.error = error;
     }
-  }
+  },
+  methods: {}
 };
 </script>
 
 <style scoped>
 .banner-home {
+  background-image: url('~assets/images/bg-home-1.jpg');
   background-size: cover;
   width: 100%;
   height: 600px;

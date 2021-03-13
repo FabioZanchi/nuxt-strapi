@@ -63,7 +63,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get("http://localhost:1337/contact");
+      const response = await axios.get("https://nuxt-strapi-cms.herokuapp.com/contact");
       this.contact = response.data;
     } catch (error) {
       this.error = error;
